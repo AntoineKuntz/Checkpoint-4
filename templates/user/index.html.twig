@@ -1,0 +1,55 @@
+  {% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+<div class="background-sign-in">
+{% include 'navbar.html.twig' %}
+
+<div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center " uk-grid>
+     
+      <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match " uk-grid>
+      
+    <div>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded uk-margin-large-top">
+         {% for message in app.flashes('addPicture') %}
+            {{ message }}
+        {% endfor %}
+        {% for message in app.flashes('password') %}
+            {{ message }}
+        {% endfor %}
+        {% for message in app.flashes('picture') %}
+            {{ message }}
+        {% endfor %}
+        {% for message in app.flashes('addpicture') %}
+            {{ message }}
+        {% endfor %}
+
+        
+             {% if app.user %}
+      {% if picture.pictureName is not defined %}  
+        <a class="uk-button uk-button-default" href={{ path("profil_picture_new", {id: app.user.id}) }}>Ajouter une photo de profil</a>
+      {% else %}
+        <img src="{{ vich_uploader_asset(picture, 'pictureFile') }}"><br>
+        <a class="uk-button uk-button-default uk-margin-small-top" href={{ path("profil_picture_edit", {user: app.user.id}) }}>changer votre photo</a>
+        
+      {% endif %}
+      {% endif %}
+        </div>
+    </div>
+         <div>
+           <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+                <form method="post">
+           <p>{{ app.user.lastname }} {{ app.user.firstname }}</p>
+           <p>E-mail : {{ app.user.email }}</p>
+           <p>Région : {{ app.user.region }}</p>
+           <p> Password : ******* </p>
+        <a class="uk-button uk-button-default uk-margin-small-top" href={{ path('profil_passwordEdit') }}>changer votre mot de passe</a>
+            </div>
+          </div>
+    </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

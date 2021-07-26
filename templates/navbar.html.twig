@@ -1,0 +1,55 @@
+<div class="tm-page">
+	<div class="tm-header uk-visible@s tm-header-transparent" uk-header>
+	    <div uk-sticky media="768" animation="uk-animation-slide-top" top=".tm-header ~ [class*=&quot;uk-section&quot;], .tm-header ~ * > [class*=&quot;uk-section&quot;]" cls-inactive="uk-navbar-transparent uk-dark">
+	        <div class="uk-navbar-container uk-navbar-transparent uk-dark">
+	            <div class="uk-container">
+	                <nav class="uk-navbar" uk-navbar="{&quot;align&quot;:&quot;center&quot;,&quot;boundary&quot;:&quot;!.uk-navbar-container&quot;}">
+	                    <div class="uk-navbar-left">
+	                    	<a href="#" class="uk-navbar-item uk-logo">
+	                    		<img uk-svg="" src="https://getuikit.com/images/uikit-logo.svg" class="uk-margin-small-right" hidden="true">
+	                    		<svg width="28" height="34" viewBox="0 0 28 34" xmlns="http://www.w3.org/2000/svg" ratio="1" class="uk-margin-small-right uk-svg">
+	                    			<polygon fill="#fff" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "></polygon>
+	                    			<path fill="#fff" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"></path>
+	                    		</svg>
+	                    	</a>
+	                    </div>
+	                    <div class="uk-navbar-center">
+	                        <ul class="uk-navbar-nav">
+	                            <li class="Home"><a href="{{ path('accueil') }}">Home</a></li>
+	                            <li><a href="{{ path('region') }}">Region</a></li>
+	                            <li><a href="{{ path('about') }}">About</a></li>
+	                            {% if app.user %}
+                 					 {% if 'ROLE_ADMIN' in app.user.roles %}
+                  					{% endif %}
+                   						<li><a href="{{ path('profil') }}">Profil</a></li>
+                   					{% else %}
+                   						<li><a href="{{ path('app_login') }}">Connexion</a></li>
+                					 {% endif %}
+	                            <li><a href="{{ path('blog') }}">Blog</a></li>
+	                        </ul>
+	                    </div>
+	                    <div class="uk-navbar-right">
+	                        <div class="uk-navbar-item" id="module-tm-1">
+	                            <div class="custom">
+	                                <ul class="uk-grid-small uk-flex-inline uk-flex-middle uk-flex-nowrap uk-grid" uk-grid>
+	                                    <li class="uk-first-column">
+	                                        <a href="https://youtube.com/" class="uk-icon-link uk-icon" target="_blank" uk-icon="youtube"></a>
+	                                    </li>
+	                                    <li>
+	                                        <a href="https://instagram.com/" class="uk-icon-link uk-icon" target="_blank" uk-icon="instagram"></a>
+	                                    </li>
+                                         <li>
+	                                        <a href="https://facebook.com/" class="uk-icon-link uk-icon" target="_blank" uk-icon="facebook"></a>
+	                                    </li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </nav>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+    </div>
+</div>
+</div>

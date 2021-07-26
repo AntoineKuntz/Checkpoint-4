@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajout d'un article{% endblock %}
+
+{% block body %}
+ {% include 'navbar.html.twig' %}
+<br><br><br>
+
+
+ <div class="uk-card uk-card-secondary uk-text-center uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-large-top uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title"></h3>
+      {{form_start(formBlog)}} 
+      {{form_label(formBlog.title)}}<br>
+      {{form_widget(formBlog.title, {'attr': {'class': 'uk-select uk-form-width-large uk-margin-small-bottom'}})}}<br>
+      {{form_label(formBlog.Category)}}<br>
+      {{form_widget(formBlog.Category)}}<br>    
+      {{form_label(formBlog.Keyword)}}<br>
+      {{form_widget(formBlog.Keyword)}}<br>    
+ </div>
+ <div class="uk-flex uk-flex-center ">
+</div>
+<div class="uk-card uk-card-secondary uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title"></h3>
+      {{form_widget(formBlog.content)}}<br>  
+ 
+</div>
+<div class="uk-card uk-card-secondary uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title"></h3>
+    <button type="submit" class="uk-button uk-button-default uk-button-medium uk-align uk-align-right""submit"> Valider </button>
+    {{form_end(formBlog)}} 
+    <a class="uk-button uk-button-secondary uk-align-left" href="{{path('blog') }}">Retour</a><br>
+</div>
+</div>
+
+{% endblock %}

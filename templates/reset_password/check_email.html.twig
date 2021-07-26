@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-mail envoyer{% endblock %}
+
+{% block body %}
+
+<div class="background-sign-in">
+{% include 'navbar.html.twig' %}
+
+<div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center " uk-grid>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+    <p>
+    Si un compte correspondant à votre e-mail existe, un e-mail lui sera envoyer contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+        Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+    <p>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou <a href="{{ path('app_forgot_password_request') }}">réessayer</a>.</p>
+
+            </div>
+    </div>
+</div>
+</div>
+{% endblock %}

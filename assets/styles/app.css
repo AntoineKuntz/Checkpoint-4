@@ -1,0 +1,32 @@
+body {
+    background-color: white;
+}
+.background-login{
+background-image: url(https://cdna.artstation.com/p/assets/images/images/020/593/390/large/damien-monteillard-atheris-hispida-17b.jpg?1568386123);
+height: 1030px;
+background-repeat: no-repeat;
+}
+
+.tm-page {
+    position: relative;
+  }
+  .el-title > span {color: #666}
+  .tm-header {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  .tm-header-transparent {
+      position: absolute;
+      z-index: 980;
+      left: 0;
+      right: 0;
+  }
+
+.background-sign-in{
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/020/593/390/large/damien-monteillard-atheris-hispida-17b.jpg?1568386123);
+    height: 1030px;
+    background-repeat: no-repeat;
+}
+
+
+

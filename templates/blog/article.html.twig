@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+<br><br><br>
+
+
+ <div class="uk-card uk-card-secondary uk-text-center uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-large-top uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title">{{blog.title}}</h3>
+{% for message in app.flashes('edit') %}
+            {{ message }}
+        {% endfor %}
+
+
+     <p>Catégories : 
+        {% for categorys in blog.category %}
+            {{ categorys.name }} 
+        {% endfor %}</p>
+          <p>Mot clés : 
+        {% for keyword in blog.keyword %}
+            {{ keyword.keyword }} 
+        {% endfor %}</p>
+ </div>
+ <div class="uk-flex uk-flex-center ">
+  <img src="{{ vich_uploader_asset(blog, 'imageFile') }}"><br>
+</div>
+<div class="uk-card uk-card-secondary uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title"></h3>
+   <p>{{ blog.createdAt|date }}</p>
+    <div>{{ blog.content|raw }}</div>
+</div>
+<div class="uk-card uk-card-secondary uk-card-body uk-width-1-2@m uk-align uk-align-center uk-margin-medium-bottom uk-border-rounded">
+    <h3 class="uk-card-title">Commentaires :</h3>
+      {% for comment in blog.comment %}
+            <div class="uk-card uk-card-secondary uk-card-body  margin-small-bottom uk-width-1-2@m">
+                <p>publié par {{comment.pseudo}} :</p>
+                {{comment.content}}
+            </div>
+        {% else %}
+        <p>il n'y a pas de commentaire</p>
+        {% endfor %}
+        <h2>Ajouter un commentaire:</h2>
+        {{form_start(formComment)}}
+        {{form_label(formComment.pseudo)}}<br>
+        {{form_widget(formComment.pseudo, {'attr': {'class': 'uk-select uk-form-width-large'}})}}<br>
+        {{form_label(formComment.email)}}<br>
+        {{form_widget(formComment.email, {'attr': {'class': 'uk-select uk-form-width-large'}})}}<br>
+        {{form_label(formComment.content)}}<br>
+        {{form_widget(formComment.content, {'attr': {'class': 'uk-select uk-form-width-large'}})}}<br>
+        {{form_label(formComment.rgpd)}}
+        {{form_widget(formComment.rgpd)}}<br>
+          <button type="submit" class="uk-button uk-button-default uk-button-medium uk-align uk-align-center""submit"> Envoyer </button>
+          <a class="uk-button uk-button-secondary uk-align-left" href="{{path('blog') }}">Retour</a><br>
+
+        {{form_end(formComment)}}
+</div>
+</div>  
+{% endblock %}

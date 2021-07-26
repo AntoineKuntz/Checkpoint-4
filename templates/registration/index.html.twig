@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="background-login">
+        {% include 'navbar.html.twig' %}
+</div>
+<div class="uk-child-width-1-1@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-margin-large-top uk-position uk-position-center uk-text-center " uk-grid>
+    <div>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded uk-margin-large-top">
+             {{ form_start(form) }}
+   <p>Nom de famille</p>
+   {{ form_widget(form.lastname, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}<br>
+   <p>Prénom </p>
+   {{ form_widget(form.firstname, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}<br>
+   <p>Email</p>
+   {{ form_widget(form.email, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}<br>
+   <p>Region</p>
+   {{ form_widget(form.region, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}
+   <p> Mot de passe </p>
+   {{ form_widget(form.password.first, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}<br>
+   <p>Confirmer votre mot de passe</p>
+   <p>{{ form_widget(form.password.second, {'attr': {'class': 'uk-select uk-form-width-large'}}) }}</p></br>
+    <button type="submit" class="uk-button uk-button-default uk-button-medium uk-align uk-align-center""submit"> Valider </button>
+     {{ form_end(form) }}
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

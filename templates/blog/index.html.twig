@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+<div class ="background-sign-in">
+{% include 'navbar.html.twig' %}
+
+
+            <section>
+  
+       
+                <div class ="uk-align uk-margin uk-position uk-position-center uk-margin-large-top uk-align-center uk-width-1-1  uk-card uk-card-secondary  uk-card-body uk-border-rounded">
+       {% for message in app.flashes('add') %}
+            {{ message }}
+        {% endfor %}
+         {% for message in app.flashes('deleteBlog') %}
+            {{ message }}
+        {% endfor %}
+      
+       {% for blogs in blog|reverse %}      
+                    <div class="uk-margin-medium-top  uk-margin-small-bottom">
+                    <p>publié le {{ blogs.createdAt|date('Y-m-d') }}</p>
+                     <div>
+                        <div class="uk-card uk-card-secondary uk-card-body">
+                            <h3 class="uk-card-title">{{blogs.title}}</h3>
+                        </div>
+                    </div>  
+                        
+                    </div>
+              
+                <a class="uk-button uk-margin-small-top uk-margin-small-bottom uk-button-default uk-box-shadow-large" href="{{ path('blog_view', {slug: blogs.slug}) }}" class="btn">voir le contenu </a>
+                 {% if app.user.id == blogs.user.id or is_granted("ROLE_ADMIN") %}
+                <a class="uk-button uk-margin-small-top uk-margin-small-bottom uk-button-default uk-box-shadow-large" href="{{ path('blog_edit', {slug: blogs.slug}) }}" class="btn">Editer votre sujet </a>
+                  <a uk-icon="icon: trash" href="{{ path('blog_delete', {id: blogs.id}) }}" class="btn uk-margin-small-right uk-margin-small-left" onClick="return confirm('Voulez vous vraiment supprimé votre sujet ? ');"></a>
+                 {% endif %}   {% endfor %}  
+<a class="uk-button uk-button-secondary uk-margin-small-left" href="{{path('blog_new') }}">Créer un sujet</a>
+    
+    <div class="uk-margin-medium-left ">
+        {{knp_pagination_render(blog)}}
+    </div>
+
+       
+</div>
+{% endblock %}

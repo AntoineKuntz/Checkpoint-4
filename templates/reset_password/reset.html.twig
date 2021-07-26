@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choisi ton mot de passe{% endblock %}
+
+{% block body %}
+<div class="background-login">
+ {% include 'navbar.html.twig' %}
+<div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center " uk-grid>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+
+    {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword.first, {'attr': {'class': ' uk-margin-small-left uk-margin-small-top uk-select uk-form-width-large'}}) }}
+        {{ form_row(resetForm.plainPassword.second, {'attr': {'class': ' uk-margin-small-left uk-margin-small-top uk-select uk-form-width-large'}}) }}
+        <button class="btn btn-primary">Valider</button>
+    {{ form_end(resetForm) }}
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récupére ton mot de passe{% endblock %}
+
+{% block body %}
+
+<div class="background-sign-in">
+{% include 'navbar.html.twig' %}
+
+<div class="uk-child-width-1-2@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center " uk-grid>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <h1>Récupérer votre mot de passe</h1>
+
+    {{ form_start(requestForm) }}
+        {{ form_label(requestForm.email) }}<br>
+        {{ form_widget(requestForm.email, {'attr': {'class': ' uk-margin-small-left uk-margin-small-top uk-select uk-form-width-large'}}) }}
+        <div>
+            <small>
+                Entrez votre email et nous vous enverrons un lien pour réinitialisez votre mot de passe.
+            </small>
+        </div>
+
+      <button class="uk-button uk-button-default uk-margin-small-top" type="submit">Envoyer</button>
+    {{ form_end(requestForm) }}
+
+   
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

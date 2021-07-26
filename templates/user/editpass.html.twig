@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block title %} modiffie ton mot de passe {% endblock %}
+
+ {% for message in app.flashes('error') %}
+ {{ message }}
+ {% endfor %}
+ {% include 'navbar.html.twig' %}
+<div class="background-sign-in">
+<div class="uk-child-width-1-1@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+            <h3 class="uk-card-title">modiffier votre mot de passe </h3>
+             <form method = "post">
+
+       <div class="uk-width-1-1@s">
+         <label for ="pass">{{ 'profil.password'|trans }}</label><br>
+        <input class="uk-input uk-form-width-medium uk-margin-small-bottom uk-margin-small-top" type="password" name="pass" id ="pass" placeholder="*****">
+    </div>
+      <div class="uk-width-1-1@s">
+         <label for ="pass">{{ 'profil.secondpassword'|trans }}</label><br>
+        <input class="uk-input uk-form-width-medium  uk-margin-small-bottom uk-margin-small-top" type="password" name="pass2" id ="pass2" placeholder="*****">
+    </div><br>
+
+        <a class="uk-button uk-button-default" href="{{ path('profil') }}">retour</a>
+        <button type="submit" class="uk-button uk-button-default uk-button-medium""submit"> valider </button>
+ </form>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

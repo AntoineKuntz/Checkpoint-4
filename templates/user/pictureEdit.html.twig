@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}change ton image de profil{% endblock %}
+
+{% block body %}
+ {% include 'navbar.html.twig' %}
+<div class="background-sign-in">
+<div class="uk-child-width-1-1@m uk-grid-small uk-grid-match uk-flex uk-flex-center uk-position uk-position-center uk-text-center " uk-grid>
+    <div>
+        <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded">
+
+            {{ form_start(form) }}
+                   <p>Choisissez une photo</p>
+                  {{ form_widget(form.pictureFile) }}<br>
+               <button type="submit" class="uk-button uk-button-default uk-button-medium ""submit"> Valider </button>
+             {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
